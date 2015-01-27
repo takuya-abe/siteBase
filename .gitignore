@@ -1,0 +1,7 @@
+#file ignore
+Thumbs.db
+.DS_Store
+
+#directory ignore
+*.sass-cache
+*.codekit-cache
