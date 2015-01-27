@@ -1,0 +1,684 @@
+//=========================================================================
+// COMMON LAYOUT
+// ページで共通のレイアウト
+//=========================================================================
+ 
+/*=========================================================================
+ * GLOBALHEADER
+ *=======================================================================*/
+#l-globalheader{
+	position: relative;
+ 	width: 100%;
+ 	min-width: 960px;
+ 	z-index: 100;
+ 	background:#FFF url(../img/common/line-horizon-gray.png) 0 100% repeat-x;
+ 	
+ 	.globalheader__text{
+		width: 100%;
+		background-color: #F5F5F5;
+		font-size: 10px;
+		letter-spacing: 0.05em; 
+		line-height: 24px;
+		color: #5c5c5c;
+		margin: 0 5px 0 0;
+		font-weight: normal;
+ 		text-align: right; 
+	}
+
+	.globalheader{
+		width: 100%;
+		min-width: 960px;
+ 		height: 128px;
+ 		position: relative;
+	}
+}
+#l-globalheader.fix{
+	position: fixed;
+	top:-24px;
+}
+
+.globalheader{
+ 	img{
+ 		vertical-align: bottom;	
+ 	}
+	
+ 	.globalheader__sitelogo{
+ 		position: absolute;
+ 		left: 50%;
+ 		top: 21px;
+ 		margin: 0 0 0 -169px;
+ 		width:358px;
+ 		height: 40px;
+ 		line-height: 40px;
+ 		text-align: center;
+ 	}
+
+ 	.globalheadernav{
+ 		$w : 960px;
+ 		position: absolute;
+ 		left: 50%;
+ 		bottom:14px;
+ 		height: 26px;
+ 		width: $w;
+ 		margin: 0 0 0 ($w / 2) * -1;
+ 	}
+
+ 	.globalheader__btns{
+ 		margin: 0;
+ 	}
+
+ 	.globalheader__btns li{
+ 		position: absolute;
+ 		top:0 ;
+ 		height: 29px; 
+ 		
+ 		&.globalheader__btn-fair{
+ 			right: 192px;
+ 			width: 106px;
+ 		}
+ 		&.globalheader__btn-request{
+ 			right: 96px;
+ 			width: 94px;
+ 		}
+ 		&.globalheader__btn-contact{
+ 			right: 0;
+ 			width: 94px;
+ 		}
+ 	}
+
+	.globalheader__corporatelogo{
+		position: absolute;
+ 		left: 6px;
+ 		top: 6px;
+ 		margin: 0;
+	}
+}
+
+.globalheadernav ul{
+	position: relative;
+	width: 100%;
+	height:100%;
+	margin: 0;
+	
+	li{
+		position: absolute;
+		top: 0px;
+		
+		&.globalheadernav__home{left: 0px;}
+		&.globalheadernav__concept{left: 72px;}
+		&.globalheadernav__chapel{left: 168px;}
+		&.globalheadernav__partyroom{left: 254px;}
+		&.globalheadernav__cuisine-cake{left: 377px;}
+		&.globalheadernav__flowers{left: 515px;}
+		&.globalheadernav__stage{left: 632px;}
+		&.globalheadernav__special-offers{left: 707px;}
+		&.globalheadernav__weddingfairs{left: 846px;}
+	}
+}
+
+.globalheadernav ul li{
+	@mixin listBtn($width){
+		width: $width;
+		>span{margin-left: round($width / 2) * -1;}
+	}
+
+	a{
+		position: relative;
+		display: block;
+		height:26px;
+		
+		>span{
+			display: block;
+			width: 100%;
+			height: 5px;
+			position: absolute;
+			top:8px;
+			left: 50%;
+			
+			>span{
+				display: block;
+				width: 0;
+				margin: 0 auto;
+				height: 5px;
+				background: $phtGreen;
+				transition: 220ms all $easeOutQuad;
+			}
+		}
+		
+		&:hover span span,
+		&.cu span span{
+			width: 100%;
+		}
+
+		img{
+			display: block;
+			position: absolute;
+		}
+	}
+	
+	&.globalheadernav__home a{@include listBtn(48px);}
+	&.globalheadernav__concept a{@include listBtn(72px);}
+	&.globalheadernav__chapel a{@include listBtn(62px);}
+	&.globalheadernav__partyroom a{@include listBtn(98px);}
+	&.globalheadernav__cuisine-cake a{@include listBtn(113px);}
+	&.globalheadernav__flowers a{@include listBtn(91px);}
+	&.globalheadernav__stage a{@include listBtn(50px);}
+	&.globalheadernav__special-offers a{@include listBtn(114px);}
+	&.globalheadernav__weddingfairs a{@include listBtn(114px);}
+
+	&.globalheadernav__flowers a:hover span span,
+	&.globalheadernav__flowers a.cu span span{
+		width: 75%;
+	}
+}
+
+/*=========================================================================
+ * WRAPPER
+ *=======================================================================*/
+#l-wrapper{
+	width: 100%;
+ 	min-width: 960px;
+ 	background-color: $bgGray;
+ 	padding-top: 0;
+ 	
+ 	&.bgwhite{
+ 		background-color: #FFF;
+ 	}
+}
+
+/*=========================================================================
+ * GLOBALFOOTER
+ *=======================================================================*/
+#l-globalfooter{
+	width: 100%;
+ 	min-width: 960px;
+ 	background-color: #ECECEC;
+ 	
+ 	.footernav{
+ 		margin: 0 auto 0 auto;
+ 		padding: 32px 0 12px 0;
+ 	}
+ 	.footersns{
+ 		
+ 	}
+ 	.footerbottomwrap{
+ 		width: 100%;
+ 		height: 50px; 
+ 		background-color: #000;
+ 	}
+}
+
+/*
+ * footernav
+ */
+.footernav .footernav__local{
+	font-size:fs(11);
+	line-height: 2.0em;
+	letter-spacing: 0.07em;
+	margin: 0 0 22px 0;
+	
+	p{
+		margin: 0;
+		text-transform: uppercase;
+ 	}
+
+ 	ul{
+ 		margin: 0 0 0 10px;
+ 	}
+ }
+
+.footernav .footernav__local a{
+	padding: 0 0 0 10px;
+	display: inline-block;
+	background: url(../img/common/globalfooter_arrow-dark.png) 0 0 no-repeat;
+	transition: 100ms all  ease-out;
+	
+	&:hover{
+		color:#AAA;
+		background-position: 3px 0;
+	} 
+}
+
+/*
+ * footersns
+ */
+.footersns ul{
+	width: (colBlock(4) + $baseGutter * 2) * 2;
+	margin: 0 auto 34px auto;
+	@include clearfix;
+	
+	img{vertical-align: bottom;}
+
+	li{
+		width: colBlock(4);
+		margin: 0 10px;
+		float: left;
+		width: 220px;
+		height: 34px;  
+	}
+	
+}
+
+/*
+ * footerbottom
+ */
+.footerbottom{
+	width: 940px;
+	margin: 0 auto;
+	display: table;
+	.footerbottom__text{
+		margin: 0 0 0 0;
+		line-height: 1.4;  
+		font-size: 10px;
+		letter-spacing: 0.05em;
+ 		height: 50px; 
+ 		color:#AAA;
+ 		width: 700px;
+ 		display: table-cell;
+ 		vertical-align: middle;
+	}
+	.copyrightbox{
+		height: 50px;
+		width: 240px;  
+		display: table-cell;
+		vertical-align: middle;
+		text-align: right;
+		
+		img{
+			vertical-align: bottom;
+		}
+	}
+}
+.footerbottom .copyrightbox{
+	.copyrightbox__logo{
+		height: 12px;
+		line-height: 12px; 
+		margin: 6px 0 0 0;
+		text-align: right;
+	}
+	.copyrightbox__copyright{
+		margin: 6px 0 0 0;
+		line-height: 1.231;
+		font-size:10px; 
+		color:#AAA;
+		letter-spacing: 0.07em;
+		text-align: right;
+	}
+}
+
+/*=========================================================================
+ * HUGE LINK BOX
+ *=======================================================================*/
+.hugelinkbox{
+	@include center(46,0,940px);
+	background-color: #FFF;
+	@include clearfix;
+	
+	img{vertical-align: bottom;}
+	
+	h2,h3,h4,h5,p{
+		margin: 0;
+	}
+	a{
+		.hugelinkbox__description{
+			@include rel(300, 265);
+			float: left;
+			
+			.title-en{
+				@include pos(59,57);
+				width: 191px;
+				height: 17px;  
+				z-index: 2;
+				background-color: #FFF;
+				//transition: 200ms all $easeOutQuad;
+				opacity: 1; 
+			}
+			
+			.title-jp{
+				@include pos(59,57);
+				@include size(191,17);
+				background-color: #FFF;
+				z-index: 1;
+			}
+			
+			.text{
+				@include pos(59,110);
+			}
+			.text3l{
+				@include pos(59,100);
+			}
+			
+			.btn{
+				@include pos(60,180);
+				@include size(180,23);
+				.hugelinkbutton{
+					display: block;
+					@include rel(100%, 100%);
+					background-color: $phtGreen;
+					overflow: hidden;
+					.bg{
+						display: block;
+						@include pos0();
+						height: 100%;
+						width: 0;
+						background-color: $phtGreenLight;
+						//transition: 200ms all $easeOutQuad;
+					}
+	
+					.item{
+						display: block;
+						@include pos0();
+						//transition: 200ms all $easeOutQuad;
+					}
+					.boxarrow-s{
+						@include pos(0,7,r);
+						@include boxarrow();
+						transition: 200ms all $easeOutQuad;
+					}
+				}
+			}
+		}
+	}
+	.hugelinkbox__thumb{
+		@include rel(640, 265);
+		float: right;
+		
+		.item{
+			@include pos0();
+		}
+		
+		.imgcover{
+			@include imgCover();
+		}
+	}
+
+	a:hover{
+		.hugelinkbox__description{
+			.btn{
+				.hugelinkbutton{
+					.boxarrow-s{
+						right: -3px; 
+					}
+				}
+			}
+		}
+	}
+}
+
+.lastchild{
+	margin-bottom: 80px; 
+}
+
+/*=========================================================================
+ * TOPIC PATH
+ *=======================================================================*/
+.topicpath{
+	@include center(0,0,960px);
+	@include clearfix;
+	padding: 7px 0 0 0; 
+	ul{
+		margin: 0;
+		float: right;
+	}
+	li{
+		list-style: none;
+		text-align: right;
+		//float: left;
+		display: inline-block;
+		font-size: 11px;
+		line-height: 17px;
+		height: 17px; 
+		letter-spacing: 0.05em;
+		padding:0 9px 0 11px;
+		background: url(../img/common/arrow-right_topicpath.png) 0 40% no-repeat;
+		white-space: nowrap;
+		a{
+			text-decoration: none;
+			color:$baseTextColor;
+			&:hover{
+				text-decoration: underline;
+				color:#AAA;
+			}
+		}
+	}
+	li:first-child{
+		background-image:none;
+	}
+}
+/*=========================================================================
+ * TPAGE TITLE
+ *=======================================================================*/
+.pagetitle{
+	@include center(57,47);
+	
+	.pagetitle__title{
+		margin: 0;
+		text-align: center;
+		@include hi(22);
+	}
+	
+	.pagetitle__tagline{
+		margin: 0;
+		text-align: center;
+		@include hi(18);
+	}
+	
+	.pagetitle__text{
+		margin: 20px 0 0 0;
+		text-align: center;
+		@include settext();
+	}
+}
+
+/*=========================================================================
+ * SHARE BLOCK
+ *=======================================================================*/
+.shareblock{
+	width: (38px + 20px * 2) * 2 ;
+	margin: 0 auto 80px auto;
+	@include clearfix;
+	
+	div{
+		@include rel(38, 38);
+		margin: 0 20px;
+		float: left;
+		.item{
+			@include pos0();
+			display: block;
+			@include size(38, 38);
+		}
+		.bg{
+			@include pos0();
+			display: block;
+			@include size(38, 38);
+			background-color: #d2d2d2;
+		}
+	}
+
+	#facebookshare{background-color: #537cbe;}
+	#twittershare{background-color: #77cdf0;}
+}
+
+/*=========================================================================
+ * FORM BLOCK
+ *=======================================================================*/
+
+#formblock{
+	@include center(60,50,710px);
+	@include clearfix();
+	ul{
+		margin: 0;
+ 		padding:0;
+ 		li{
+ 			list-style: none;
+ 			float: left;
+ 			width: 295px;
+ 			height: 65px;
+ 			margin: 0 30px;
+ 			position: relative;
+ 			overflow: hidden;
+ 			img{
+ 				vertical-align: bottom;
+ 				display: block;
+ 			} 
+ 		}
+	}
+}
+#formblock .boxbutton-arrow{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: $phtGreen;
+	
+	.bg{
+		display: block;
+		@include pos0();
+		height: 100%;
+		width: 0;
+		background-color: $phtGreenLight;
+		transition: 200ms all $easeOutQuad;
+	}
+
+	.item{
+		display: block;
+		@include pos0();
+		left: -61px; 
+	}
+
+	.boxarrow{
+		position: absolute;
+		right: 0;
+		top:29px;
+			
+		@include boxarrow();
+	}
+
+	&:hover .bg{
+		width: 100%;
+	}
+}
+
+#l-bottomnavblock{
+	@mixin navLine(){
+		content: "";
+		@include center(0,0,940px);
+		@include size(940,1);
+		line-height: 1px;
+		display: block;
+		background-color: $lineGray;
+	}
+	
+	&:before{
+		@include navLine();
+	}
+	
+	&:after{
+		@include navLine();
+	}
+	@include center(80);
+	
+	ul{
+		margin: 0;
+		li{
+			height: 39px; 
+		}
+		a{
+			font-size: 11px;
+			line-height: 39px;
+			
+			&:hover span{
+				text-decoration: underline;
+				color:#AAA;
+			}
+		}
+
+	}
+	.left{
+		margin: 0 0 0 10px;
+		a{
+			background: url(../img/common/arrow-left.png) 0 50% no-repeat;
+			padding: 0 0 0 13px;
+		}
+	}
+	.center{
+		text-align: center;
+		a{
+			background: url(../img/common/icon-menu.png) 0 50% no-repeat;
+			padding: 0 17px 0 17px;
+		}
+	}
+	
+	.right{
+		margin: 0 10px 0 0;
+		text-align: right;
+		a{
+			background: url(../img/common/arrow-right.png) 100% 50% no-repeat;
+			padding: 0 13px 0 0;
+		}
+	}
+}
+/*=========================================================================
+ * TAB NAVI
+ *=======================================================================*/
+#l-topnavblock{
+	@mixin navLine(){
+		content: "";
+		@include center(0,0,940px);
+		@include size(940,1);
+		line-height: 1px;
+		display: block;
+		background-color: $lineGray;
+	}
+	
+	&:before{
+		@include navLine();
+	}
+	
+	&:after{
+		@include navLine();
+	}
+	@include center(60);
+	ul{
+		margin: 0;
+		li{
+			height: 49px;
+		}
+	}
+}
+.tabitem{
+	@include rel(100%, 100%);
+	.bg{
+		width:140px;
+		height: 5px;
+		display: block;
+		@include pos(50%, 27);
+		margin: 0 0 0 -70px;
+	}
+	.item{
+		@include pos(50%, 17);
+		margin: 0 0 0 -70px;
+	}
+	a{
+		.bg span{
+			display: block;
+			width: 0;
+			margin: 0 auto;
+			height: 5px;
+			background: $phtGreen;
+			transition: 180ms all $easeOutQuad;
+		}
+		&:hover .bg span,
+		&.cu .bg span{
+			width: 100%;
+		}
+		&:hover .bg .w80,
+		&.cu .bg .w80{
+			width: 80%;
+		}
+		&:hover .bg .w76,
+		&.cu .bg .w76{
+			width: 76%;
+		}
+	}
+}

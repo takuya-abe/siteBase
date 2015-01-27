@@ -1,0 +1,362 @@
+@charset "utf-8";
+// PROJECT SETTINGS
+@import "settings.scss";
+// LIBRARIES
+@import "lib/normalize_min.scss";
+@import "lib/css3easing.scss";
+// CLEARFIX
+@import "util/clearfix.scss";
+// MIX IN
+@import "util/mixin.scss";
+// BASE
+@import "base.scss";
+// COMMON MODULE
+@import "module.scss";
+// COMMON LAYOUT
+@import "layout.scss";
+
+/*=========================================================================
+ * TOP PAGE LAYOUT
+ *=======================================================================*/
+#mainslide{
+	z-index: 9;
+	height: auto;
+	width: 100%;
+	min-width: 960px;
+	min-height: 540px;
+	position: relative;
+	margin: 0 auto 59px auto;
+	overflow:hidden;
+	img{vertical-align: bottom;}
+
+	.mainslide__body{
+ 		@include pos0();
+ 		@include size(100%,100%);
+ 		z-index : 5;
+	}
+
+	.mainslide__item{
+		@include pos0();
+ 		@include size(100%,100%);
+ 	
+ 		> img{
+ 			position: absolute;
+ 			left: 0;
+ 			width: 100%;
+ 			height: auto;
+ 			zoom:1;
+ 		}
+ 	
+ 		.mainslide__text{
+ 			position: absolute;
+ 			left: 50%;
+ 			top: 50%;
+ 			margin: -210px 0 0 -290px;
+ 		}
+	}
+	#mainslide__loadingbg{
+		@include pos0();
+ 		@include size(100%,100%);
+ 		background:#FFF;
+ 		z-index : 6;
+	}
+	#mainslide__loadingbody{
+		@include pos(50%,50%);
+		margin: -16px 0 0 -16px;
+		z-index : 7;
+	}
+	#mainslide__loadinglogo{
+		@include pos(50%,50%);
+		margin: -80px 0 0 -200px;
+		z-index : 8;
+		display: none; 
+	}
+}
+.infosection{
+	@include center(36);
+	img{vertical-align: bottom;}
+
+	.infosection__header{
+		@include clearfix;
+		margin: 0 0 24px 0;
+		
+		.title{
+			margin: 0 0 0 9px;
+			float: left;
+			@include hi(14);
+		}
+		
+		.btn{
+			float: right;
+			margin: 0 0 0 0;
+			@include hi(14);
+			a{
+				background: url(../img/common/arrow-right.png) 100% 50% no-repeat;
+				display: inline-block;
+				padding: 0 13px 0 0;
+				margin: 0 9px 0 0;
+				transition: 200ms all $easeOutQuad;
+				&:hover{
+					margin-right: 6px; 
+					//padding-right: 10px; 
+				}
+			}
+		}
+	}
+	
+	ul{
+		margin: 0;
+		
+		.row{
+			margin-bottom: 20px; 
+		}
+	}
+}
+
+.infolistitem-small{
+	display: table ;
+	@include clearfix;
+	background-color: #FFF; 
+	img{vertical-align: bottom;}
+	
+	.infolistitem__thumb{ 
+		display: table-cell;
+		vertical-align: top;
+		img{vertical-align: bottom;}
+
+		.body{
+			@include rel(160px, 113px);
+
+			.item{
+				@include pos0();
+			}
+
+			.imgcover{
+				@include imgCover();
+			}
+		}
+	}
+
+	.infolistitem__description{
+		display: table-cell;
+		vertical-align: top;
+		width: 298px;
+		.body{
+		}
+		p{
+			padding: 0 20px;
+			margin: 0;
+		}
+		.date{
+			@include settext();
+			text-align: right; 
+			color: $darkGreen;
+			font-size: 11px;
+			line-height: 1.3; 
+			transition: 200ms all $easeOutQuad;
+			padding: 10px 10px 0 20px; 
+		}
+		.text{
+			@include settext();
+			line-height: 1.5; 
+			transition: 200ms all $easeOutQuad;
+			margin: -5px 0 4px 0;
+		}
+		.note{
+			font-size: 11px!important;
+			margin-top:0!important;
+		}
+		.btn{
+			margin: 4px 0 0 0;
+			@include settext();
+			line-height: 1.4; 
+			transition: 200ms all $easeOutQuad;
+			span{
+				background-image: url(../img/common/arrow-right-block.png);
+				padding: 0 29px 0 0;
+				background-position: 100% 50%;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+	&:hover{
+		.infolistitem__description{
+			.date{
+				color: #AAA; 
+			}
+			.text{
+				color: #AAA; 
+			}
+			.btn{
+				color: #AAA;
+				//padding: 0 17px 0 23px;
+			}
+		}
+	}
+}
+
+.bannersection{
+	@include center(70);
+	
+	img{vertical-align: bottom;}
+
+	ul{
+		margin: 0;
+	}
+}
+
+.verticalitem{
+	.verticalitem__thumb{
+		@include rel(300, 120);
+		
+		.item{
+			@include pos0();
+		}
+		
+		.imgcover{
+			@include imgCover();
+		}
+	}
+	.verticalitem__text{
+		@include rel(300, 35);
+		background-color: #FFF; 
+		overflow: hidden; 
+		.btn{
+			margin: 0;
+		}
+		
+		.item{
+			@include pos0();
+			//transition: 200ms all $easeOutQuad;
+		}
+
+		.boxarrow{
+			position: absolute;
+			right: 0;
+			top:13px;
+			transition: 200ms all $easeOutQuad;
+			@include boxarrow();
+		}
+	}
+
+	&:hover{
+		.verticalitem__text{
+			.item{
+				//left:3px; 
+			}
+			.boxarrow{
+				right: -3px; 
+			}
+		}
+	}
+}
+
+.artistsection{
+	@include center(40,70);
+	img{vertical-align: bottom;}
+
+	.artistsection__header{
+		@include clearfix;
+		margin: 0 0 24px 0;
+		
+		.title{
+			margin: 0 0 0 9px;
+			float: left;
+		}
+		
+		.btn{
+			float: right;
+			margin: 0 0 0 0;
+			@include hi(14);
+			a{
+				background: url(../img/common/arrow-right.png) 100% 0% no-repeat;
+				display: inline-block;
+				padding: 0 13px 0 0;
+				margin: 0 9px 0 0;
+				transition: 200ms all $easeOutQuad;
+				&:hover{
+					margin-right: 6px; 
+					//padding-right: 10px; 
+				}
+			}
+		}
+	}
+	
+	ul{
+		margin: 0;
+		
+		.row{
+			margin-bottom: 20px; 
+		}
+	}
+}
+
+.verticalitem-s{
+	.verticalitem__thumb{
+		@include rel(140, 102);
+		
+		.item{
+			@include pos0();
+		}
+		
+		.imgcover{
+			@include imgCover();
+		}
+	}
+	.verticalitem__text{
+		margin: 9px 0 10px 0;
+		padding: 0;
+		@include rel(140, 27);
+		.text-en{
+			@include pos0();
+			display: block;
+			z-index: 2;
+		}
+		.text-jp{
+			@include pos0();
+			display: block;
+			z-index: 1;
+		}
+	}
+}
+
+#missing{
+	#l-wrapper{
+		background-color: #FFF;
+	}
+	#l-globalfooter{
+		background-color: whitesmoke;
+	}
+
+	.missinmain{
+		width:940px;
+		margin: 80px auto 100px auto; 
+		p{
+			text-align: center;
+			margin-bottom: 40px; 
+		}
+	}
+
+	.btnbox_1btn{
+		width: 320px;
+		margin: 0 auto 60px auto;
+		
+		img{vertical-align: bottom;} 
+
+		ul{
+			width: 320px;
+			margin: 0 auto 0 auto;
+ 			padding:0;
+ 			li{
+ 				list-style: none;
+ 				@include rel(300,43);
+ 				margin: 0 10px;
+ 				.boxarrow{
+ 					@include boxarrow();
+ 					@include pos(0,17,r);
+ 				}
+ 			}
+		}
+	}
+
+}

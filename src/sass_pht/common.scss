@@ -1,0 +1,177 @@
+@charset "UTF-8";
+
+// Config + Utl
+@import "config";
+
+// Base
+@import "base";
+//@import "font-face";
+
+// Libraries
+@import "lib/easing";
+//@import "lib/css3-mixins";
+//@import "lib/normalize";
+//@import "lib/emreset"; 
+
+// Class
+//@import "class/text";
+
+
+/* COMMON SETTINGS */
+
+body { letter-spacing: inherit; }
+li.btn > a { display: block; height: 100%; width: 100%;}
+
+/* FONTS */
+
+html {
+		@include text-sizing(16px, 24px);
+		font-family: $font-family-body;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		&[lang="ja"] {
+				font-family: $font-family-serif-ja;
+				@include text-sizing(14px, 25px);
+		}
+}
+
+// Mac 見出し ヒラギノ明朝  優先  iOS → 全てA1明朝
+span.en { font-family: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "A1 Mincho","A1明朝", serif;   }
+// Win 見出し Times 優先 
+html.win body { font-family: "Times New Roman", Times,"ＭＳ Ｐ明朝", serif;  }
+// Win 見出し Times 優先
+html.win body span.en { font-family: "Times New Roman", Times,"メイリオ","ヒラギノ明朝 Pro W3","ＭＳ Ｐ明朝", serif;}
+
+/* WRAPPER OPTION */
+
+#wrapper {overflow-x:hidden; min-width: $min_w; }
+
+/* HEADER AREA */
+
+#header {// height: auto; width:100%; min-width: $min_w; max-width:1280px; position: relative; margin: 0 auto;
+	.main_logo { text-align: center; padding-top:30px; 
+		>a { @include dilb;	}
+	}
+}
+
+#header { position: fixed; top: 0; left: 0; width: 100%; min-width: 960px; z-index: 1000; background: #ffffff; text-align: center; }
+#header_inner { position: relative; width: auto; min-width: 960px; max-width: 1280px; margin: 0 auto; }
+#fake_header { height: 126px; }
+.no-js #header { position: relative; margin: 0 auto; max-width: 1280px; }
+
+#g_navi {	margin-top:20px; padding-bottom:12px;
+	.navi_inner {  text-align: center; width: $min_w; margin: 0 auto; 
+		li { @include dilb; margin:0 20px - 8px; padding:0 8px; text-transform: uppercase; letter-spacing:0.2em; font-size:11px; width:auto; position: relative;
+			span.en { position: relative; z-index: 10;}
+			a span.currentbar { height: 0px; width:100%; background-color:#fff; @include pabl(2px,0); z-index: 1;  transition: 200ms all  ease-in-out;   -webkit-transition:200ms all  ease-in-out;}
+			a:hover span.currentbar { height: 7px; background-color:$pht_green;}
+		}
+		li.cu span.currentbar { height: 7px; background-color:$pht_green;}
+	}
+}
+html.win #g_navi { .navi_inner { li {span.currentbar { @include pabl(0px,0); z-index: 1; }}}}
+
+#top_links {  @include patr(0,0); height: 32px;
+	.top_links_inner { text-align: left; height:100%; width:100%;
+		li { float: left;  margin-left:1px; 
+			a { height: 32px; width:120px - 7px;  line-height: 32px; letter-spacing:0.4em; font-size:12px; text-align: center; background:url(../img/common/textdecorate_arrow_b_m.png) 83% 49% no-repeat; padding-right:7px;  background-color:$pht_green; }
+		}
+	}
+}
+
+/* #breadcrumb_list */
+
+#breadcrumb_list { position: relative; width:940px; padding:10px 10px 0; margin: 0  auto; @include clearfix;
+	ul { float: right; height: 20px; }
+	li { @include dilb; padding: 0 4px; @include ttup; font-size: 11px; letter-spacing: 0.2em;}
+	a { padding: 0 10px 0 0; background: url(../img/common/textdecorate_arrow_b_s.png) 100% 50% no-repeat; }
+	a:hover { text-decoration: underline;}
+}
+
+/* #contents_recommend */
+
+#contents_recommend { position: relative; padding: 60px 0 0;
+	> ul { @include clearfix; width:100%; min-width:#{$min_w}; max-width:#{$min_w}; margin: 0 auto; 
+		li {  margin: 10px; display: block; float: left;  height:115px + 64px; width: 220px; font-size: 12px; line-height: 1.5;
+		span { display: block; }
+		span.rec_txt { padding-top:10px;}
+	  }
+	}	
+}
+
+/* FOOTER AREA */
+
+#footer_head { width: 960px - 20px; margin: 0 auto; text-align:center; padding:30px 0 20px;
+	.share { position:relative;
+		ul { 
+			li { @include dilb; margin:0 24px;  background-color:#d2d2d2;} 
+		}
+	}
+}
+#pagetop {width:100%; min-width: $min_w; max-width:1280px; margin: 0 auto 20px; text-align: right;}
+
+#footer { width:100%; background-color:$pht_dgray; color:#fff; letter-spacing: 0.2em; padding-bottom:38px;}
+
+#footer_link { padding:10px;  width: #{$min_w - 20px};  margin: 0 auto; position: relative; @include clearfix;
+	.secton01,.secton02,.secton03,.secton04 { width: 22%; float: left; padding-left:3%; }
+	h4,li { padding-left:8px; text-transform: uppercase; font-weight: normal; font-size: 11px; line-height: 1.6;	background:url(../img/common/textdecorate_arrow_w_s.png) 0 50% no-repeat; }
+	li.line2 { background:url(../img/common/textdecorate_arrow_w_s.png) 0 18% no-repeat;  }
+	h4 { margin-top:20px;}
+	li { margin-left:10px;}
+	ul { padding-top:8px;}
+}
+#footer_sns { margin-top:30px;
+	ul { text-align: center;
+		li { @include dilb; border:1px solid #666; letter-spacing: 0.2em; line-height: 1; 
+			a { height:38px - 12px; width:218px - 26px; padding-right:26px;  padding-top:12px; background: url(../img/common/textdecorate_window.png) 89% 52% no-repeat;}
+		 }
+	}
+}
+#footer_end { height: auto; background-color:#000; color:#fff;
+	.inner{position: relative; width: 960px; margin: 0 auto; height: 50px; display: table;
+		.credit { display: table-cell; vertical-align: middle; height: 100%; width:auto;
+			.c_name { letter-spacing: 0.3em; font-size: 12px; @include ttup;}
+			.c_cr { letter-spacing: 0.1em; font-size: 10px; }
+		}
+		.endnote { display: table-cell; vertical-align: middle; text-align: right;
+			li { @include dilb;  padding-left:8px; text-transform: uppercase; font-size: 11px; line-height: 1.6;	background:url(../img/common/textdecorate_arrow_w_s.png) 0 50% no-repeat; margin-left:15px;}
+		 }
+	}
+}
+
+
+/* ADD OVER RIDE ITEM for JS */
+#breadcrumb_list {
+overflow: hidden;
+}
+#fixed_caption {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+min-width: 960px;
+text-align: center;
+background: #ffffff;
+letter-spacing: 0.1em;
+-webkit-transform: translate3d(0, 0, 0);
+}
+#fixed_caption #contents_captinon h1,
+#fixed_caption #contents_captinon .title {
+padding-top: 0px;
+}
+#fixed_caption h2,
+#fixed_caption .caption {
+overflow: hidden;
+}
+#fixed_caption #contents_captinon {
+padding-top: 50px;
+padding-bottom: 0;
+}
+#footer {
+position: relative;
+z-index: 900;
+}
+#fixed_inner {
+width: 960px;
+margin: 0 auto;
+}

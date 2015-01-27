@@ -1,0 +1,69 @@
+@charset "utf-8";
+// ===================================================================
+// Main
+// ===================================================================
+
+/* TEST */
+.test {
+	@include border_radius;
+	@include border_radius(5px 10px 2px 12%);
+	@include bg_size(100px);
+	@include min_height(777px);
+	@extend .clearfix;
+	@extend .box_size;
+	background: url(#{$img_path}share/bg_test.gif);
+	font-size: fz(18);
+}
+.opTest img:hover {
+	@extend .opacity;
+}
+
+
+/*----------------------------------------------------
+	element style
+----------------------------------------------------*/
+body {
+	background: $main_color;
+	color: $font_color;
+	font-family: $base_font;
+}
+
+input, textarea {
+	font-family: $base_font;
+}
+
+// for IE6
+* html {
+	body, input, textarea {
+		font-family: $base_font_ie;
+	}
+}
+
+// Links
+a {
+	&:link { color: $link_color; }
+	&:visited {color: $link_color_visited; }
+	&:hover { text-decoration: none; color: $link_color_hover; }
+	&:active { color: $link_color_active; }
+}
+
+// レイアウト関係のスタイル読み込み
+@import "layout";
+
+
+/*----------------------------------------------------
+	#main
+----------------------------------------------------*/
+#main {
+	float: left;
+	width: 320px;
+	background: $main_color;
+	table, ol, ul, dl, blockquote, pre, p {
+	margin-bottom: $base_margin_bottom;
+	}	
+}
+
+/*----------------------------------------------------
+	#sub
+----------------------------------------------------*/
+

@@ -1,0 +1,117 @@
+//=========================================================================
+// MIN IN & FUNCTION
+//=========================================================================
+
+
+// font-size %
+@function fs($font-size){
+	 @return $font-size * 10%;
+}
+
+// 背景画像
+@function setImg($img, $path:$cmnImgPath){
+	@return url($path + $img);
+}
+// pxつける
+@function toPx($num){
+	@if $num != 0 {
+		@if unitless($num){
+			$num: $num + px;
+		}
+	}
+	@return $num;
+}
+
+//テキストブロック
+@mixin justify() {
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+
+//=========================================================================
+// GRID
+//=========================================================================
+//
+// Column横幅計算
+// $num column分割数
+//
+@function colBlock($num){
+	$this_baseWidth : $baseWidth;
+	$this_gridNum : $gridNum;
+	$this_baseGutter : $baseGutter;
+	//$baseColumn : ($this_baseWidth - (( $this_gridNum * 2 ) * $this_baseGutter)) / $this_gridNum;
+	$baseColumn : $colWidth;
+	@return $baseColumn * ($this_gridNum / $num) + ((($this_gridNum / $num) - 1) * $this_baseGutter) * 2;
+}
+
+@mixin grid-row($num) {
+   width: colBlock($num);
+   margin-right: $baseGutter;
+   margin-left: $baseGutter;
+}
+// $numは分割数
+@mixin grid-col($num, $width: $baseWidth) {
+   width: $width;
+   @include clearfix;
+
+   .row{
+   		@include grid-row($num);
+		float: left;
+	}
+}
+
+// サイズ指定、単位が無ければpx 単位が有ればそちらを優先
+@mixin size($width, $height) {
+	@if unitless($width){
+		width: $width + px;
+	} @else {
+		width: $width;
+	}
+
+	@if unitless($height){
+		height: $height + px;
+	} @else {
+		height: $height;
+	}
+}
+//height指定
+@mixin hi($height) {
+	line-height: toPx($height);
+	height: toPx($height);
+}
+
+//=========================================================================
+// 絶対配置
+//=========================================================================
+// relativeを指定
+@mixin rel($width, $height) {
+	position: relative;
+	@include size($width,$height);
+}
+
+// absoluteで(0,0)の位置に
+@mixin pos0() {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+// absoluteで(0,0)の位置に
+@mixin pos($x, $y, $xAxis: left, $yAxis: top) {
+	position: absolute;
+	@if $xAxis == right or $xAxis == r {
+		$xAxis: right;
+	}
+
+	@if $yAxis == bottom or $yAxis == b {
+		$yAxis: bottom;
+	}
+
+	#{$xAxis}: toPx($x);
+	#{$yAxis}: toPx($y);
+}
+
+// ブロック要素をセンタリング
+@mixin center($mb, $mt:0, $width:$baseWidth) {
+	margin: toPx($mt) auto toPx($mb) auto;
+	width: $width;
+}

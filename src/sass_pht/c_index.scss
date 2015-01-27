@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+// Config + Utl
+@import "config";
+
+/* main */
+#main_area {	 height: auto; min-height: 350px; width: 100%; min-width: $min_w; position: relative; margin: 0 auto; overflow-x:hidden;
+	.main_slide_frame { @include patl(0,50%); margin-left:-640px;
+		li { @include patl(0,0); }
+	}
+}
+
+/* content */
+
+#contents { width:100%; min-width:#{$min_w}; max-width:#{$min_w}; margin: 0 auto; padding:30px 0 60px; overflow-x:hidden; position: relative; }
+#contents { letter-spacing: 0.1em;  line-height:1;}
+
+#contents_captinon { height: auto; padding-bottom:20px; text-align: center;
+	h1 {@include ttup; font-size:16px; letter-spacing: 0.7em; font-weight: normal; padding-top:20px;}
+	h1 + h2 { font-size:12px; font-weight: normal; padding-top:10px; } 
+	.caption { line-height: 2.3; font-size: 13px; padding-top:40px; }
+}
+#contentslink { position: relative; padding:0 10px;
+	.contents_card { width: #{$min_w - 20px};  height: 265px; margin-top:46px; position: relative;
+		a span { display: block;
+			&.card_hrader { background-color:$pht_green; height: 265px; width:960px - 20px - 640px; display: table-cell; vertical-align: middle;}
+			&.title { @include ttup; letter-spacing: 0.8em;}
+			&.title.jp { font-size: 16px; letter-spacing: 0.1em!important;}
+			&.caption {  font-size:11px; line-height: 1.8; width:190px;}
+			&.btn { width:160px; padding:0 10px;  text-align: center; height:21px; line-height: 21px; font-size:10px; color:#fff; background:#000 url(../img/common/textdecorate_arrow_w_s.png) 80% 50% no-repeat; 
+				&>span { @include ttup; @include dilb; } 
+			}
+			&.imgarea { @include patr(0,0);  background-color: #fff;}
+			&.title { margin-left:60px; }
+			&.caption { margin-left:60px; margin-top:20px; }
+			&.btn { margin-left:60px; margin-top:20px; }
+		}
+	}
+}
+
+
+/* UNIQUE */
+
+/* concept  */
+#concept_index {
+#main_area { width:100%; min-width:#{$min_w}; max-width:1280px;
+	.keyimage00,.keyimage01,.keyimage02,.keyimage03 {	height: 650px; position: relative; 
+		.inner { width: 960px; height: 100%; margin: 0 auto; position: relative; }
+	}
+	.keyimage00 { background:url(../img/concept/concept_bg.jpg) 50% 0 no-repeat;
+		.head { @include patl(59px,12px);}
+		.head_sub { @include patl(84px,11px);}
+		.copy { @include patl(176px,10px);}
+		.caption { @include patl(217px,-7px); }
+	}
+	.keyimage01 { background:url(../img/concept/partyroom_bg.jpg) 50% 0 no-repeat;
+		.copy { @include patr(161px,-18px);}
+		.caption { @include patr(219px,-18px); }
+		.btn { @include patr(360px,-0); } 
+	}
+	.keyimage02 { background:url(../img/concept/cuisine-cake_bg.jpg) 50% 0 no-repeat;
+		.copy { @include patl(178px,-26px);}
+		.caption { @include patl(236px,-26px); }		
+		.btn { @include patl(406px,-0); } 
+	}
+	.keyimage03 { background:url(../img/concept/pl_bg.jpg) 50% 0 no-repeat;
+		.copy { @include patr(136px,0);}
+		.caption { @include patr(207px,0); }		
+	} 
+}
+#contents { max-width:1280px; background-color:#f0f0f0; margin-bottom: 60px;
+ 	.title {@include ttup; font-size:16px; letter-spacing: 0.7em; font-weight: normal; padding-top:20px;}
+}
+#contents_captinon {
+ 	.caption { font-size: 13px; padding-bottom: 30px;}
+ 	h3 { padding-top: 10px;}
+ }
+
+#artistlinks { position: relative; padding:0;
+	.inner { width: 960px; height: 100%; margin: 0 auto; position: relative; }
+	 ul { @include clearfix; width:100%; min-width:$min_w; max-width:$min_w;  margin: 0 auto; 
+		li {  margin: 10px; display: block; float: left; position: relative; overflow: hidden; height:250px; transition: all 200ms ease-in-out; -webkit-transition: all 200ms ease-in-out;
+			img {cursor: pointer; display: block; transition: all 200ms ease-in-out; -webkit-transition: all 200ms ease-in-out;}
+		}
+		li.wide { width:940px;}
+		li.quarter { height:220px; width:220px; }
+	}
+}
+}
+
+/* cuisine_cake  */
+#contents_detail { padding:45px 10px; @include clearfix;
+	dl.profile { float: left; width: 430px; display: table;
+		dt { display:table-cell; width:140px;}
+		dd { display:table-cell; width:auto; vertical-align: middle; padding-left:40px;
+		.profession { display:table-row; font-size:12px; line-height: 40px;}
+		.name{ display:table-row; font-size:16px; line-height: 40px;}
+		}
+	}
+	.greeting { float: right; width: 460px; 
+		p { line-height: 2.3; font-size: 12px;}
+		h4 { padding:30px 0 6px;}
+		p.profile { line-height: 2.3; font-size: 11px; }
+	}
+}
+
+/* artist  */
+#artist {
+	#contentslink{
+		ul { @include clearfix; }
+		li { height: 304px; margin-top:46px; position: relative;
+			a > span { display: block; text-align: center; 
+				> span { @include dilb; padding: 15px 4px 5px;}
+			}
+			.name { font-size: 14px;}
+			.profession { font-size: 9px;}
+		}
+		.f_left { float: left; }
+		.f_right { float: right; }
+	}
+}
+
+/* news  */
+#news {
+		#contents_captinon { height: 74px; }
+		#contentslink { position: relative; padding:0 110px;
+			.contents_card_news { width: #{$min_w - 220px};  height: 140px; margin-top:46px; position: relative;
+		a span { display: block; }
+			.img { @include patl; width:220px; }
+			.summary { padding-left:220px + 40px; width: #{$min_w - 220px - 220px - 40px }; height: 100%; position: relative;  text-align: left;
+				.date { font-size: 11px; padding-bottom: 6px; padding-top: 2px;}
+				.title { font-size: 16px; letter-spacing: 0.2em; padding-bottom: 20px; margin: 0;}
+				.text { font-size: 13px; line-height:1.8;  }
+				.btn { @include pabr; width:120px - 10*2px; padding:0 10px;  text-align: center; height:21px; line-height: 21px; font-size:10px; color:#fff; background:#000 url(../img/common/textdecorate_arrow_w_s.png) 92% 50% no-repeat; 
+					>span { @include ttup; @include dilb; } 
+				}
+			}
+		}
+	}
+}
+

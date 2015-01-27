@@ -1,0 +1,15 @@
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>
+AuthUserFile /var/www/vhosts/kariup.com/httpdocs/＊＊作成したディレクトリ名＊＊/.htpasswd
+#AuthUserFile //var/www/vhosts/＊＊作成したディレクトリ名＊＊/httpdocs/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Please enter your ID and password"
+AuthType Basic
+require valid-user
+Satisfy any
+
+order deny,allow
+allow from 60.32.105.49
+allow from 211.129.73.13
+deny from all

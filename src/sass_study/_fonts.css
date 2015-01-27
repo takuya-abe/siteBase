@@ -1,0 +1,24 @@
+body{
+    font:13px/1.231 Verdana,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
+    *font-size:small; *font:x-small;}
+select,input,button,textarea { font:99% arial,helvetica,clean,sans-serif; }
+table { font-size:inherit; font:100%; }
+pre,code,kbd,samp,tt { font-family:monospace; *font-size:108%; line-height:100%; }
+
+@mixin font10 { font-size: 77%; }
+@mixin font11 { font-size: 85%; }
+@mixin font12 { font-size: 93%; }
+@mixin font13 { font-size: 100%; }
+@mixin font14 { font-size: 108%; }
+@mixin font15 { font-size: 116%; }
+@mixin font16 { font-size: 123.1%; }
+@mixin font17 { font-size: 131%; }
+@mixin font18 { font-size: 138.5%; }
+@mixin font19 { font-size: 146.5%; }
+@mixin font20 { font-size: 153.9%; }
+@mixin font21 { font-size: 161.6%; }
+@mixin font22 { font-size: 167%; }
+@mixin font23 { font-size: 174%; }
+@mixin font24 { font-size: 182%; }
+@mixin font25 { font-size: 189%; }
+@mixin font26 { font-size: 197%; }

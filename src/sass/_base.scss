@@ -1,0 +1,58 @@
+/*=========================================================================
+ * BASE
+ *=======================================================================*/
+html {
+	text-rendering: optimizeLegibility;
+}
+body {
+	font-size:$baseFontSize;
+	line-height: $baseLineHeight;
+	font-family: $baseFont;
+	background-color: $baseBgColor;
+	color: $baseTextColor;
+}
+br {
+	letter-spacing: 0!important;
+}
+img {
+	-ms-interpolation-mode:bicubic;
+}
+ul,ol{
+	padding: 0; 
+}
+li{
+	list-style:none;  
+}
+a{
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	filter: inherit;
+}
+
+/*
+ * HELPER
+ */
+
+ // jsoffの場合でも見えなくていい
+ // はじめは見えていない要素に適用 
+ // 常に要らない、jsだけでみせるもの。
+.none {
+	display: none!important;
+	.no-js &{
+		display: none!important;
+	}
+}
+// 後から見せる系の要素
+.hidden{
+	visibility: hidden;
+	.no-js &{
+		visibility: visible;
+	}
+}
+
+.uppercase{
+	text-transform: uppercase;
+}

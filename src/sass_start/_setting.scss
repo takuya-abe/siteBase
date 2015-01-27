@@ -1,0 +1,93 @@
+@charset "utf-8";
+/*!
+ * Configuration
+ */
+
+// Project
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+$dir-root: "";
+$dir-font: $dir-root + "common/font";
+$dir-img:  $dir-root + "common/img";
+$dir-css:  $dir-root + "common/css";
+
+// Size
+$base_width: 960px;
+$max_width:	1280px;
+
+// Using onf.js
+$onf_js: true;
+
+// Fallback Switch ( CSS only )
+$support-ie: 8 !default;
+
+// DOCTYPE
+$use_html5: true;
+
+// Using Normalize.css
+// $normalized:		true;
+// $emreset: 			false;
+ 
+// 汎用クラスを使用するか
+$use_extend_object: true;
+
+// 簡易ロールオーバーの値
+$opacity_value: .6;
+
+// 余白調整用のクラスを使用するか
+$use_spacing_classes: false;
+
+// 付与するベンダープレフィックス
+$set_prefix: -webkit-, -moz-, -ms-, -o-, '';
+
+// 角丸の初期値
+$br_value: 3px;
+
+
+// Color scheme
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// プロジェクトカラー
+$pht_green:				#e1f5d2;
+$pht_icegray:			#f6f6f6;
+$pht_dgray:				#1e1f20;
+
+// ベースカラー
+$color-white: 		#ffffff;
+$color-black: 		#000000;
+ 
+$color-rightgray: #eeeeee;
+$color-darkgray:	#232323;
+$color-milk:    	#f4f1e9;
+$color-snow:     	#f6f6f6;
+
+$color-platinum:  #b9c0c2;
+$color-darkbrown: #231815;
+
+$color-body-background: $color-white;
+$color-body-text:       $color-black;
+
+// ベーステキストカラー
+$font_color: #333;
+
+// ベースリンクカラー
+$link_color: #06f;
+$link_color_visited: #39f;
+$link_color_hover: #00f;
+$link_color_active: #00f;
+
+
+
+// Typography
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Font family
+$font-family-sans:  "Nobel", "Avenir Next", "Corbel", sans-serif;
+$font-family-sans-ja: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+$font-family-serif: "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3","HGS明朝E","ＭＳ Ｐ明朝","MS Mincho", "MS PMing",serif;
+$font-family-serif-ja: 'A1 Mincho','A1明朝', serif;
+
+$font-family-mono:  "Menlo", "Consolas", monospace;
+$font-family-body:  $font-family-serif;
+
+$font-size-body:   16px;
+$line-height-body: 24px;

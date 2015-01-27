@@ -1,0 +1,165 @@
+/*!
+ * Configuration
+ */
+
+// Project
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+$dir-root: "";
+$dir-font: $dir-root + "common/font";
+$dir-img:  $dir-root + "common/img";
+$dir-css:  $dir-root + "common/css";
+
+// Vers
+$img_path:'../img/';
+
+// Size
+$min_w:	960px;
+$max_w:	1280px;
+
+// Using Normalize.css
+$normalized:		true;
+$emreset: 			false;
+
+// Fallback Switch
+$support-ie: 8 !default;
+
+
+// Color scheme
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$pht_green:				#e1f5d2;
+//$pht_icegray:			#fbfbfb;
+$pht_icegray:			#f6f6f6;
+$pht_dgray:				#1e1f20;
+
+$color-white: 		#ffffff;
+$color-black: 		#000000;
+ 
+$color-rightgray: #eeeeee;
+$color-darkgray:	#232323;
+$color-milk:    	#f4f1e9;
+$color-snow:     	#f6f6f6;
+
+$color-platinum:  #b9c0c2;
+$color-darkbrown: #231815;
+
+$color-body-background: $color-white;
+$color-body-text:       $color-black;
+
+// Typography
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Font family
+$font-family-sans:  "Nobel", "Avenir Next", "Corbel", sans-serif;
+$font-family-sans-ja: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+$font-family-serif: "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3","HGS明朝E","ＭＳ Ｐ明朝","MS Mincho", "MS PMing",serif;
+$font-family-serif-ja: 'A1 Mincho','A1明朝', serif;
+
+$font-family-mono:  "Menlo", "Consolas", monospace;
+$font-family-body:  $font-family-serif;
+
+// Font size
+// $font-size-default:  16px;
+
+// Type sizing (font-size, line-height, context)
+// $type-sizing-desktop-base:     14px, 20px, $font-size-default;
+// $type-sizing-desktop-xx-large: 30px, 36px, nth($type-sizing-desktop-base, 1);
+// $type-sizing-desktop-x-large:  24px, 30px, nth($type-sizing-desktop-base, 1);
+// $type-sizing-desktop-large:    18px, 24px, nth($type-sizing-desktop-base, 1);
+// $type-sizing-desktop-small:    12px, 18px, nth($type-sizing-desktop-base, 1);
+
+// $type-sizing-phone-base:       12px, 16px, $font-size-default;
+// $type-sizing-phone-x-large:    20px, 24px, nth($type-sizing-phone-base, 1);
+// $type-sizing-phone-large:      16px, 20px, nth($type-sizing-phone-base, 1);
+// $type-sizing-phone-small:      10px, 14px, nth($type-sizing-phone-base, 1);
+
+$font-size-body:   16px;
+$line-height-body: 24px;
+
+
+/*!  * UTILITY   */
+
+//  POSITION:ABSOLUTE
+@mixin patl($top:0,$left:0) { position: absolute; top: $top; left: $left; }
+@mixin patr($top:0,$right:0) { position: absolute; top: $top; right: $right; }
+@mixin pabl($bottom:0,$left:0) { position: absolute; bottom: $bottom; left: $left; }
+@mixin pabr($bottom:0,$right:0) { position: absolute; bottom: $bottom; right: $right; }
+
+@mixin wh100 { width:100%; height:100%; }
+
+// Display
+@mixin dilb { display: inline-block; *display:inline; *zoom:1;}
+
+// Typography Option
+@mixin ttup {text-transform: uppercase;}
+
+// Print Control
+@mixin no-print () {
+    @media print {
+        display: none;
+    }
+}
+
+// Clearfix
+// nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+    @if $support-ie and $support-ie != 0 and $support-ie < 8 {
+        *zoom: 1;
+    }
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Text sizing - font-size, line-height and letter-spacing
+@mixin text-sizing ($font-size, $line-height, $letter-spacing: 0) {
+    @if unitless($font-size) {
+        $font-size: $font-size * 1px;
+    } @else if unit($font-size) != px {
+        @warn "`$font-size` must be in px or unitless";
+    }
+    @if unitless($line-height) {
+        $line-height: $line-height * 1px;
+    } @else if unit($line-height) != px {
+        @warn "`$line-height` must be in px or unitless";
+    }
+    @if unitless($letter-spacing) {
+        $letter-spacing: $letter-spacing * 1px;
+    } @else if unit($letter-spacing) != px {
+        @warn "`$letter-spacing` must be in px or unitless";
+    }
+    font-size: $font-size;
+    line-height: x-ceil-decimal($line-height/$font-size, 2);
+    @if $letter-spacing != 0 {
+        letter-spacing: x-ceil-decimal($letter-spacing/$font-size, 2) * 1em;
+    }
+}
+
+// Sizing type (font-size and line-height)
+// @mixin type-sizing ($font-size, $line-height: null, $context: null) {
+//     font-size: x-ceil-decimal(percentage($font-size / $context), 2);
+//     @if ($line-height) {
+//         line-height: x-ceil-decimal($line-height / $font-size, 4);
+//     }
+// }
+
+// CSS Opacity
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// http://www.w3.org/TR/css3-color/#transparency
+// http://www.quirksmode.org/css/opacity.html
+@mixin opacity ($alpha) {
+    @if $support-ie and $support-ie != 0 and $support-ie < 9 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{ $alpha * 100 })";
+        @if $support-ie < 8 {
+            filter: alpha(opacity=#{ $alpha * 100 });
+        }
+    }
+    opacity: $alpha;
+}
+

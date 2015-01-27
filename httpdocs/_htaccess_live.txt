@@ -1,0 +1,7 @@
+# .htaccess for "http://www.nihonlogix.co.jp/"
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^(nihonlogix\.co.jp)(:80)? [NC]
+RewriteRule ^(.*) http://www.nihonlogix.co.jp/$1 [R=301,L]
+RewriteCond %{THE_REQUEST} ^.*/index.html
+RewriteRule ^(.*)index.html$ http://www.nihonlogix.co.jp/$1 [R=301,L]
+ErrorDocument 404 /404.html

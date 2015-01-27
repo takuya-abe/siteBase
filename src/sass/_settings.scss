@@ -1,0 +1,38 @@
+//
+// Project Settings
+//
+
+//fomt-family
+$fontSansEn: Verdana,Helvetica,Arial,sans-serif;
+//$fontSansJa: "Lucida Grande","Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+$fontSansJa: "メイリオ", 'Hiragino Kaku Gothic ProN', sans-serif;
+//Default Font
+$baseFont: $fontSansJa;
+
+//font-size;
+$baseFontSize: 62.5%;
+$baseLineHeight: 1.231;
+
+$cmnImgPath: "../img/common/";
+
+//Grid
+$baseWidth: 960px;
+$gridNum: 12;
+$baseGutter: 10px;
+$colWidth: 60px;
+
+//Color
+$baseBgColor: #FFF;
+$bgGray: #F5F5F5;
+$bgWhite: #FFFFFF;
+
+$baseTextColor: #646464;
+$phtGreen: #e1f5d2;
+$phtGreenLight: #eaf8e0;
+$darkGreen: #174434;
+
+$lineGray: #e4e4e4;
+
+$textlink: #669999;
+$texthover: #89cccc;;
+
